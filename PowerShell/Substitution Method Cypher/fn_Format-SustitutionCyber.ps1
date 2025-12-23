@@ -6,7 +6,7 @@
 #    Generate random substitution legend and save it as an exported file
 #    Make more breakfast references
 
-function Format-SubstitutionMethod {
+function Format-SubstitutionCypher {
 <#
 .SYNOPSIS
 
@@ -31,10 +31,10 @@ There is also an issue with capitalization due to powershell not being case sens
 It cannot process numbers until the token is generation is adjusted to use something else
 
 .EXAMPLE
-Wworking:  format-SubstitutionMethod -filepath ./in/text.txt -OutPath ./out/out.txt -Legend ./substitution.csv -Scramble
-Working:  format-SubstitutionMethod -filepath ./out/out.txt -OutPath ./out/out2.txt -Legend ./substitution.csv -Unscramble
-Not working:  format-SubstitutionMethod -filepath ./in/windowsvista_1920x1200.bmp -OutPath ./out/windowsvista_1920x1200_out.bmp -Legend ./substitution.csv -Scramble
-Not working:  format-SubstitutionMethod -filepath ./out/windowsvista_1920x1200_out.bmp -OutPath ./unscrambled/windowsvista_1920x1200_unscram.bmp  -Legend ./substitution.csv -Unscramble
+Wworking:  format-SubstitutionCypher -filepath ./in/text.txt -OutPath ./out/out.txt -Legend ./substitution.csv -Scramble
+Working:  format-SubstitutionCypher -filepath ./out/out.txt -OutPath ./out/out2.txt -Legend ./substitution.csv -Unscramble
+Not working:  format-SubstitutionCypher -filepath ./in/windowsvista_1920x1200.bmp -OutPath ./out/windowsvista_1920x1200_out.bmp -Legend ./substitution.csv -Scramble
+Not working:  format-SubstitutionCypher -filepath ./out/windowsvista_1920x1200_out.bmp -OutPath ./unscrambled/windowsvista_1920x1200_unscram.bmp  -Legend ./substitution.csv -Unscramble
 #>
 
     [CmdletBinding(DefaultParameterSetName = "Scramble")]
@@ -283,6 +283,6 @@ Not working:  format-SubstitutionMethod -filepath ./out/windowsvista_1920x1200_o
     End {}
 }
 
-Write-Host "Function loaded.  Please use Get-Help Format-SubstitutionMethod for help" -ForegroundColor Cyan
+Write-Host "Function loaded.  Please use Get-Help Format-SubstitutionCypher for help" -ForegroundColor Cyan
 
 #fin
