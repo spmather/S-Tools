@@ -4,6 +4,7 @@
 1. Compound Interest
 2. Amortization
 3. Unicode File Generator (work in progress)
+4. Fuzzy string
 
 ## PowerShell
 1. Substitution Cypher
