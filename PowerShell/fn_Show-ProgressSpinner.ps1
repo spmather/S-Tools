@@ -2,7 +2,7 @@
 
 # spmather
 # 2026-07-27
-# v1.0.0
+# v1.0.1
 
 
 function Show-ProgressSpinner {
@@ -26,6 +26,10 @@ function Show-ProgressSpinner {
 
     Use at the end of a ForEach loop in Windows:
     (1..255) | ForEach-Object {Test-NetConnection -ComputerName 192.168.0.$_ -ErrorAction SilentlyContinue ; Write-Output "Working on a ping to 192.168.0.$($_) $(Show-ProgressSpinner)"}
+
+    .EXAMPLE
+    Select random color with one rotation per color
+    for ($k = 0 ; $k -lt 999 ; $k++) {show-progressspinner -color (Get-Random "Black","DarkBlue","DarkGreen","DarkCyan","DarkRed","DarkMagenta","DarkYellow","Gray","DarkGray","Blue","Green","Cyan","Red","Magenta","Yellow","White")}
     
 #>
 
