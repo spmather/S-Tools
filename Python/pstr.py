@@ -1,17 +1,21 @@
 #!/bin/python3
 
 # spmather
-# 2026-07-15
-# 2026-08-04
-# 1.0.1
+# created 2026-07-15
+# updated 2026-08-04
+# 1.0.2
 
 # Import note if running from terminal:  
-#     import sys 
-#     sys.path.append('/path/to/script/folder')  # remove with sys.path.remove('/path/to/script/folder')
-#     import pstr
-#     pstr.pstrd("String 1","String 2")
+#     I added argparse stuff for both functions:  
+#     pstr "probability of strings" and pstrd "probability of strings with debug."
+#     To execute (in case I forget later), use /path/to/file.py functionname param1 param2
+#     i.e.  ~/Documents/pythonscripts/pstr.py pstrd "A car" "A cat"
+#     Hypothetically, one can add the file to /bin/pstr without the file extension too. As long as 
+#     it has +x permissions.
+
 
 import string
+import argparse
 
 def pstrd(reference,difference):
     """
@@ -169,5 +173,34 @@ def pstr(reference,difference):
     wordpercent = commonwordlen / wordlen
     prob = (charpercent + wordpercent) / 2
     return prob
+
+# read a tutorial that I am not certain wasn't an llm... tricksey hobbits
+
+def main():
+    parser = argparse.ArgumentParser(description="probability of string match")
+    subparsers = parser.add_subparsers(dest="command", required=True)
+
+    # Add list of commands to execute from another shell
+    #     I feel like there's a way to automate this better
+
+    # pstr parameters
+    pstr_parser = subparsers.add_parser("pstr", help="probability of string match")
+    pstr_parser.add_argument("ref", type=str, help="reference string")
+    pstr_parser.add_argument("dif", type=str, help="difference string")
+
+    # pstrd parameters
+    pstrd_parser = subparsers.add_parser("pstrd", help="probability of string match with debug")
+    pstrd_parser.add_argument("ref", type=str, help="reference string")
+    pstrd_parser.add_argument("dif", type=str, help="difference string")
+
+    # Do the thing
+    doit = parser.parse_args()
+    if doit.command == "pstr":
+        print(pstr(doit.ref, doit.dif))
+    if doit.command == "pstrd":
+        print(pstrd(doit.ref, doit.dif))
+
+if __name__ == "__main__":
+    main()
 
 # fin
